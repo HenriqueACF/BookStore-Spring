@@ -34,6 +34,17 @@ public class BookModel implements Serializable {
     )
     private Set<AuthorModel> authors = new HashSet<>();
 
+    @OneToOne(mappedBy = "book", cascade = CascadeType.ALL)
+    private ReviewModel review;
+
+    public ReviewModel getReview() {
+        return review;
+    }
+
+    public void setReview(ReviewModel review) {
+        this.review = review;
+    }
+
     public Set<AuthorModel> getAuthors() {
         return authors;
     }
